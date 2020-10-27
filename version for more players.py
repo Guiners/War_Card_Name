@@ -52,27 +52,27 @@ def fight(list_of_players, extra_stos = [], winers = [],):
     in_game = []
     for j in range(len(list_of_players)):
         #licznik += len(list_of_players[j])
-        #print("liczba kart", licznik)
+        #print('a', list_of_players[j])
         if len(list_of_players[j]) == 0:
             winers.append(str("Player" + str(j)))
             pass
 
         else:
-            #print("player", j, "has", len(list_of_players[j]))
+            print("player", j, "has", len(list_of_players[j]))
             in_game.append(j)
+            #print("players in game",in_game)
             stos.append(list_of_players[j][0])
             print('player', j, "put", list_of_players[j][0])
             list_of_players[j].pop(0)
-
+    #print("liczba kart", licznik)
     copy_stos = stos.copy()
     copy_stos.sort()
-
     if len(copy_stos) > 1:
         if copy_stos[0][0] != copy_stos[1][0]:
             war.append(stos.index(copy_stos[0]))
             print('player numer', war, 'lost')
             stos.extend(extra_stos)
-            list_of_players[war[0]].extend(stos)
+            list_of_players[in_game[war[0]]].extend(stos)
             stos = []
 
         else:
@@ -85,7 +85,7 @@ def fight(list_of_players, extra_stos = [], winers = [],):
                         war_copy = war.copy()
                         for i in range(len(war_copy)):
                             war[i] = list_of_players[i]
-                        fight(war,stos)
+            fight(war,stos)
 
     else:
         stos.extend(extra_stos)
