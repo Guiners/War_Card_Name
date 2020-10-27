@@ -58,7 +58,7 @@ def fight(list_of_players, extra_stos = [], winers = [],):
             pass
 
         else:
-            print("player", j, "has", len(list_of_players[j]))
+            #print("player", j, "has", len(list_of_players[j]))
             in_game.append(j)
             #print("players in game",in_game)
             stos.append(list_of_players[j][0])
