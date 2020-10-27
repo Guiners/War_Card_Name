@@ -1,6 +1,6 @@
 import random
 import numpy as np
-
+import time
 
 while True:
     number_of_players = int(input("Enter number of players:(At least 2 players)"))
@@ -58,7 +58,7 @@ def fight(list_of_players, extra_stos = [], winers = [],):
             pass
 
         else:
-            print("player", j, "has", len(list_of_players[j]))
+            #print("player", j, "has", len(list_of_players[j]))
             in_game.append(j)
             stos.append(list_of_players[j][0])
             print('player', j, "put", list_of_players[j][0])
@@ -106,5 +106,6 @@ while True:
     winers3 = fight(players)
     if len(winers3) == number_of_players:
         break
+    time.sleep(1)
 
 print("Winers in sequence", winers3)
